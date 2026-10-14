@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eigercal"
+version = "0.1.0"
+description = "Eiger XRF calibration driven from Python, with the per-pixel fits done by aare"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+# slsdet and slsdetbox are installed from conda, see README.md
+dependencies = ["numpy", "scipy", "matplotlib", "pyzmq", "aare>=2026.9.30"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["eigercal*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
